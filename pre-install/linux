@@ -1,0 +1,4 @@
+# -*- mode: sh -*-
+
+# Remove previously installed ramdisk image
+rm -f "$(getrdname)"

@@ -1,0 +1,8 @@
+# -*- mode: sh -*-
+
+IFS=. read -r start _ < /proc/uptime
+
+# Record flags so we can restore them after the build is finished.
+oCFLAGS="$CFLAGS"
+oCXXFLAGS="$CXXFLAGS"
+oLDFLAGS="$LDFLAGS"

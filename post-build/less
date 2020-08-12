@@ -1,0 +1,4 @@
+# -*- mode: sh -*-
+
+mv "$DEST/usr/bin/less" "$DEST/usr/bin/gless"
+ln -sf gless "$DEST/usr/bin/less"

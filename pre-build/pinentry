@@ -1,0 +1,17 @@
+cat <<EOF> .build.cpt
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --enable-fallback-curses \
+    --enable-pinentry-emacs \
+    --disable-libsecret \
+    --disable-pinentry-gtk2 \
+    --without-libcap \
+    --disable-rpath \
+    --enable-pinentry-tty \
+    --enable-pinentry-curses
+
+make
+make DESTDIR="\$1" install
+EOF

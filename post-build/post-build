@@ -1,0 +1,13 @@
+# -*- mode: sh -*-
+build_end finished
+
+rm -rf "$DEST/usr/share/gettext" \
+       "$DEST/usr/share/gtk-doc"
+
+[ -d "$DEST/usr/share/man" ] &&
+    find "$DEST/usr/share/man" -type d ! -name 'man*' -exec rm -rf {} +
+
+# Restore any previous flags
+export CFLAGS="$oCFLAGS"
+export CXXFLAGS="$oCXXFLAGS"
+export LDFLAGS="$oLDFLAGS"

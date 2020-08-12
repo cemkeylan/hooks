@@ -1,0 +1,4 @@
+# -*- mode: sh -*-
+
+# Run the 'linux' script for potential kernel packages.
+case "$PKG" in linux-[4-9].[0-9]*) . "$KISS_HOOK_DIR/post-install/linux"; esac

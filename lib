@@ -1,0 +1,25 @@
+# -*- mode: sh -*-
+
+getrdname() {
+    # Retrieve the kernel name to generate appropriate ramfs image
+    while read -r file; do
+        case "$file" in /boot/vmlinuz*) ;; *) continue; esac
+        file=${file##/boot/vmlinuz-}
+        printf '/boot/initrd-%s.img\n' "$file"
+    done < "/var/db/kiss/installed/$PKG/manifest"
+}
+
+build_end() {
+    IFS=. read -r end _ < /proc/uptime
+    (
+        second=$(( end - start ))
+        buildtime=$(printf '%02d:%02d:%02d' \
+            "$(( second / 3600 ))" \
+            "$(( second % 3600 / 60 ))" \
+            "$(( second % 60 ))")
+
+        log "$PKG" "Build $1 in $buildtime"
+    )
+}
+
+printf 'TYPE=%s PKG=%s DEST=%s\n' "$TYPE" "$PKG" "$DEST"

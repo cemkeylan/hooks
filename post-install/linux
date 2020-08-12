@@ -1,0 +1,4 @@
+# -*- mode: sh -*-
+
+log "$PKG" "Regenerating grub configuration"
+grub-mkconfig -o /boot/grub/grub.cfg
