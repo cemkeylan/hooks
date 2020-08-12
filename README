@@ -1,0 +1,7 @@
+cpt/kiss hooks
+--------------
+
+These are my package manager hooks which I use with the kiss-hook[1] script.
+Feel free to make use of it, or have an idea for how the hook script works.
+
+[1]: https://github.com/cemkeylan/kiss-hook
