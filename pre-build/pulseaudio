@@ -1,0 +1,2 @@
+# Add libcap support and build static libraries
+sed -i 's/--without-caps/--enable-static/' .build.cpt
