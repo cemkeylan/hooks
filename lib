@@ -6,7 +6,7 @@ getrdname() {
         case "$file" in /boot/vmlinuz*) ;; *) continue; esac
         file=${file##/boot/vmlinuz-}
         printf '/boot/initrd-%s.img\n' "$file"
-    done < "/var/db/kiss/installed/$PKG/manifest"
+    done < "$sys_db/$PKG/manifest"
 }
 
 build_end() {
