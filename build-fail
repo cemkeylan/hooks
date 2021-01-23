@@ -1,1 +1,2 @@
 build_end failed
+notify-send "$PKG" "Build failed"
