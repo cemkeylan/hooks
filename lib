@@ -1,6 +1,9 @@
 # -*- mode: sh -*-
 
 getrdname() {
+    # Return if the package is not already installed
+    [ -d "$sys_db/$PKG" ] || return 0
+
     # Retrieve the kernel name to generate appropriate ramfs image
     while read -r file; do
         case "$file" in /boot/vmlinuz*) ;; *) continue; esac

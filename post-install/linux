@@ -1,4 +1,7 @@
 # -*- mode: sh -*-
 
+log "Generating initramfs"
+read -r ver _ < "$sys_db/$PKG/version"
+/usr/local/bin/mkinitramfs --kernel="$ver"
 log "$PKG" "Regenerating grub configuration"
 grub-mkconfig -o /boot/grub/grub.cfg
